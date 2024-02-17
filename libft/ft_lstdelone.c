@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junhyeop <junhyeop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/31 21:39:18 by junhyeop          #+#    #+#             */
-/*   Updated: 2024/01/31 21:39:40 by junhyeop         ###   ########.fr       */
+/*   Created: 2023/10/13 19:47:18 by junhyeop          #+#    #+#             */
+/*   Updated: 2023/11/03 17:54:32 by junhyeop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	while (*s1 && *s2)
-	{
-		if (*s1 != *s2)
-			return (*s1 - *s2);
-		s1++;
-		s2++;
-	}
-	return (*s1 - *s2);
+	if (!lst || !del)
+		return ;
+	del(lst->content);
+	free(lst);
 }

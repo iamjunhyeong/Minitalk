@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junhyeop <junhyeop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/07 16:06:18 by junhyeop          #+#    #+#             */
-/*   Updated: 2023/11/08 17:15:30 by junhyeop         ###   ########.fr       */
+/*   Created: 2023/10/13 20:18:16 by junhyeop          #+#    #+#             */
+/*   Updated: 2023/11/05 18:07:24 by junhyeop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	size_t			i;
-	unsigned char	*us1;
-	unsigned char	*us2;
+	t_list	*tmp;
 
-	us1 = (unsigned char *)s1;
-	us2 = (unsigned char *)s2;
-	i = 0;
-	if (n == 0)
-		return (0);
-	while ((us1[i] != 0 || us2[i] != 0) && (i < n - 1))
+	if (!lst || !del)
+		return ;
+	while (*lst)
 	{
-		if (us1[i] != us2[i])
-			break ;
-		i++;
+		tmp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = tmp;
 	}
-	return (us1[i] - us2[i]);
 }

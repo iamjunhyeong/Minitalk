@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: junhyeop <junhyeop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/07 17:02:15 by junhyeop          #+#    #+#             */
-/*   Updated: 2024/02/17 22:58:58 by junhyeop         ###   ########.fr       */
+/*   Created: 2024/02/17 21:16:51 by junhyeop          #+#    #+#             */
+/*   Updated: 2024/02/17 21:17:06 by junhyeop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minitalk.h"
 
 int	is_space(char c)
 {
@@ -21,14 +21,12 @@ int	is_space(char c)
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	res;
-	int	sign;
+	long long	res;
+	int			sign;
 
 	res = 0;
-	i = 0;
 	sign = 1;
-	if (*str == 0)
+	if (*str == 0 || ft_strlen(str) > 11)
 		return (0);
 	while (is_space(*str))
 		str++;
@@ -42,8 +40,10 @@ int	ft_atoi(const char *str)
 	while (*str != 0)
 	{
 		if (*str < '0' || *str > '9')
-			break ;
-		res = (res * 10) + *str++ - 48;
+			return (0);
+		res = (res * 10) + (*str++ - 48) * (sign);
+		if (res < -2147483648 || res > 2147483647)
+			return (0);
 	}
-	return (res * (sign));
+	return (res);
 }

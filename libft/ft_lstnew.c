@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junhyeop <junhyeop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/07 16:06:18 by junhyeop          #+#    #+#             */
-/*   Updated: 2023/11/08 17:15:30 by junhyeop         ###   ########.fr       */
+/*   Created: 2023/10/13 19:14:40 by junhyeop          #+#    #+#             */
+/*   Updated: 2023/11/05 19:55:16 by junhyeop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+t_list	*ft_lstnew(void *content)
 {
-	size_t			i;
-	unsigned char	*us1;
-	unsigned char	*us2;
+	t_list	*newnode;
 
-	us1 = (unsigned char *)s1;
-	us2 = (unsigned char *)s2;
-	i = 0;
-	if (n == 0)
-		return (0);
-	while ((us1[i] != 0 || us2[i] != 0) && (i < n - 1))
-	{
-		if (us1[i] != us2[i])
-			break ;
-		i++;
-	}
-	return (us1[i] - us2[i]);
+	newnode = (t_list *)malloc(sizeof(t_list));
+	if (!newnode)
+		return (NULL);
+	newnode->next = NULL;
+	newnode->content = content;
+	return (newnode);
 }
