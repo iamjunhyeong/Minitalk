@@ -6,7 +6,7 @@
 #    By: junhyeop <junhyeop@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/17 23:00:25 by junhyeop          #+#    #+#              #
-#    Updated: 2024/02/17 23:00:29 by junhyeop         ###   ########.fr        #
+#    Updated: 2024/02/18 17:50:59 by junhyeop         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,6 @@ SRCS = ft_memset.c \
 		ft_memmove.c \
 		ft_memchr.c \
 		ft_memcmp.c \
-		ft_strcmp.c \
 		ft_strlen.c \
 		ft_strlcpy.c \
 		ft_strlcat.c \
