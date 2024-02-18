@@ -6,7 +6,7 @@
 /*   By: junhyeop <junhyeop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 17:13:48 by junhyeop          #+#    #+#             */
-/*   Updated: 2024/02/17 22:44:17 by junhyeop         ###   ########.fr       */
+/*   Updated: 2024/02/18 21:05:53 by junhyeop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@ void	send_bit(pid_t pid, char c)
 	b = 0;
 	while (b < 8)
 	{
-		if (c & (1 << b))
+		if ((c & (1 << b)) != 0)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
+		usleep(100);
 		b++;
 	}
 }
@@ -34,23 +35,17 @@ void	send_str(pid_t pid, char *str)
 	i = 0;
 	while (str[i])
 	{
-		send_bit(str[i]);
+		send_bit(pid, str[i]);
 		i++;
 	}
 	send_bit(pid, '\n');
 	send_bit(pid, '\0');
 }
 
-void ft_handler(int sig, siginfo_t *info, void *uap)
-{
-	uap = NULL;
-	g_pid = info->si_pid;
-	g_signal = sig;
-}
-
 int main(int argc, char **argv) 
 {
 	pid_t	pid;
+	pid_t	cpid;
 
 	if (argc != 3 || argv[2][0] == '\0')
 		print_error(1);
