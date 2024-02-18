@@ -6,7 +6,7 @@
 /*   By: junhyeop <junhyeop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 16:37:53 by junhyeop          #+#    #+#             */
-/*   Updated: 2023/11/03 17:46:42 by junhyeop         ###   ########.fr       */
+/*   Updated: 2024/02/18 17:06:22 by junhyeop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,3 @@ void	ft_putstr_fd(char *s, int fd)
 		s++;
 	}
 }
-
-// int main(void)
-// {
-// 	char *a = "abcd";
-// 	ft_putstr_fd(a, 1);
-// }
