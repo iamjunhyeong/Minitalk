@@ -6,7 +6,7 @@
 /*   By: junhyeop <junhyeop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 17:11:23 by junhyeop          #+#    #+#             */
-/*   Updated: 2024/02/17 22:59:36 by junhyeop         ###   ########.fr       */
+/*   Updated: 2024/02/18 17:13:32 by junhyeop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,6 @@
 
 void	ft_putstr_fd(char *s, int fd);
 void	print_error(int type);
-
-int		ft_atoi(const char *str);
-int		is_space(char c);
 
 
 #endif
