@@ -6,7 +6,7 @@
 /*   By: junhyeop <junhyeop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 21:51:55 by junhyeop          #+#    #+#             */
-/*   Updated: 2024/02/18 22:41:25 by junhyeop         ###   ########.fr       */
+/*   Updated: 2024/02/19 20:44:31 by junhyeop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <signal.h>
 # include <unistd.h>
 # include "../libft/libft.h"
-
 
 void	print_error(int type);
 void	send_bit(pid_t pid, char c);

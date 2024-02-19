@@ -6,7 +6,7 @@
 /*   By: junhyeop <junhyeop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 17:13:48 by junhyeop          #+#    #+#             */
-/*   Updated: 2024/02/18 22:42:51 by junhyeop         ###   ########.fr       */
+/*   Updated: 2024/02/19 20:44:03 by junhyeop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,8 @@ int	main(int argc, char **argv)
 	if (signal(SIGUSR1, success_msg) != 0)
 		print_error(3);
 	pid = ft_atoi(argv[1]);
-	// if (pid < 100 || pid > 9999)
-	// 	print_error(2);
 	send_str(pid, argv[2]);
 	while (1)
 		pause();
-		
 	return (0);
 }

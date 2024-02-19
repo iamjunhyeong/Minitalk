@@ -6,7 +6,7 @@
 #    By: junhyeop <junhyeop@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/18 17:11:11 by junhyeop          #+#    #+#              #
-#    Updated: 2024/02/18 22:09:32 by junhyeop         ###   ########.fr        #
+#    Updated: 2024/02/19 20:45:22 by junhyeop         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@ NAME_SV = server
 NAME_CL = client
 NAME_SV_BONUS = server_bonus
 NAME_CL_BONUS = client_bonus
-
 
 SRC_DIR = ./src
 BONUS_DIR = ./src_bonus
@@ -43,13 +42,8 @@ ARFLAGS = rs
 
 all: $(NAME_SV) $(NAME_CL)
 
-
 %.o: %.c $(foreach D, $(INCDIRS), $(D)*.h)
 	$(CC) $(CFLAGS) -c -o $@ $<
-
-
-
-
 
 $(NAME): $(NAME_SV) $(NAME_CL)
 
@@ -59,7 +53,6 @@ $(NAME_SV): $(LIB) $(OBJS_SV)
 $(NAME_CL): $(LIB) $(OBJS_CL)
 		$(CC) -o $(NAME_CL) $(OBJS_CL) -L$(LIBDIR) -l$(LIBNAME)
 
-
 $(NAME_BONUS): $(NAME_SV_BONUS) $(NAME_CL_BONUS)
 
 $(NAME_SV_BONUS): $(LIB) $(OBJS_SV_BONUS)
@@ -67,11 +60,6 @@ $(NAME_SV_BONUS): $(LIB) $(OBJS_SV_BONUS)
 
 $(NAME_CL_BONUS): $(LIB) $(OBJS_CL_BONUS)
 		$(CC) -o $(NAME_CL_BONUS) $(OBJS_CL_BONUS) -L$(LIBDIR) -l$(LIBNAME)
-
-
-
-
-
 
 $(LIB):
 	$(MAKE) -C $(LIBDIR) all
